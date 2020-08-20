@@ -14,7 +14,57 @@
       "url": "http://localhost:3000"
     }
   ],
-  "paths": {},
+  "paths": {
+    "/weather": {
+      "get": {
+        "summary": "Your GET endpoint",
+        "tags": [
+          "Weather endpoints"
+        ],
+        "responses": {},
+        "operationId": "get-weather",
+        "description": "description",
+        "security": [
+          {
+            "API Key - 1": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "number"
+            },
+            "in": "query",
+            "name": "id",
+            "description": "id ",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "name"
+          },
+          {
+            "schema": {
+              "type": "number"
+            },
+            "in": "query",
+            "name": "lat"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "in": "query",
+            "name": "lng"
+          }
+        ]
+      },
+      "parameters": []
+    }
+  },
   "components": {
     "schemas": {},
     "securitySchemes": {
@@ -24,5 +74,10 @@
         "in": "query"
       }
     }
-  }
+  },
+  "tags": [
+    {
+      "name": "Weather endpoints"
+    }
+  ]
 }
