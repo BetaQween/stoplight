@@ -21,7 +21,80 @@
         "tags": [
           "Weather endpoints"
         ],
-        "responses": {},
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "number"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "lat": {
+                      "type": "string"
+                    },
+                    "lng": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "examples": {
+                  "example-1": {
+                    "value": {
+                      "id": 1,
+                      "name": "aaa",
+                      "lat": 32,
+                      "lng": 34
+                    }
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
         "operationId": "get-weather",
         "description": "description",
         "security": [
@@ -36,7 +109,7 @@
             },
             "in": "query",
             "name": "id",
-            "description": "id ",
+            "description": "",
             "required": true
           },
           {
@@ -55,7 +128,7 @@
           },
           {
             "schema": {
-              "type": "string"
+              "type": "number"
             },
             "in": "query",
             "name": "lng"
@@ -66,7 +139,23 @@
     }
   },
   "components": {
-    "schemas": {},
+    "schemas": {
+      "unauthorized_response": {
+        "title": "unauthorized_response",
+        "type": "object",
+        "x-examples": {
+          "example-1": {
+            "id": "string"
+          }
+        },
+        "description": "",
+        "properties": {
+          "id": {
+            "$ref": ""
+          }
+        }
+      }
+    },
     "securitySchemes": {
       "API Key - 1": {
         "name": "API Key",
